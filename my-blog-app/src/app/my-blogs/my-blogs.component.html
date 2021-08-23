@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/home">Blogger</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/myBlogs">My Blogs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" (click)="logoutUser()">Logout</a>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+<div *ngFor="let item of items | async">
+    <div class="card m-2" style="width: 18rem;">
+      <img class="card-img-top" src="{{ item.imgUrl }}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{ item.title }}</h5>
+        <p class="card-text">{{ item.body }}</p>
+      </div>
+      <div class="card-footer text-muted">
+        Posted By {{ item.createdBy }}
+      </div>
+    </div>
+</div>
